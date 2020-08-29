@@ -1,2 +1,2 @@
-Flask==1.1.2
-gunicorn
+qrcode==6.1
+Image
