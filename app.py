@@ -1,29 +1,30 @@
-import qrcode
-import random
-import os
-
-f= open("data.txt","w+")
-
-
-def key_gen():
-	sub_key="abcdefghijklmnopqrstuvwxyz0234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-	key_len=23
-	op =  "".join(random.sample(sub_key,key_len ))
-
-	with open("1.txt", "a") as myfile:
-		myfile.write(op+'\n')
-	print(op)
-	return op
+from flask import Flask
+from flask import render_template
+from flask import request
+from flask import request,redirect,render_template,url_for
+import csv
+app = Flask(__name__)
 
 
-def code_gen():
-	ip=key_gen()
-	img=qrcode.make(ip)
+@app.route('/', methods=['GET', 'POST'])
+def login():
+	error=None
+	if request.method == 'POST':
+		if request.form['loginuser'] != 'admin' or request.form['loginPassword'] != 'admin':
+			error = 'Invalid Credentials. Please try again.'
+		else:
+			return redirect("/dashboard")
+	return render_template('fun.html')
 
-	img.save(ip+'.png')
-	#return img.show('save.png')
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+	error=None
+	pass
 
+@app.route('/dashboard',methods=['GET','POST'])
+def dashboard():
+	user = 'dummy_user'
+	return render_template('dashboard.html',user=user)
 
-for i in range(0,1000):
-	code_gen()
-	i-=1
+if __name__ == '__main__':
+    app.run(host='127.0.0.1', port=8080, debug=True) 
