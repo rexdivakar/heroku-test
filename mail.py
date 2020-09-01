@@ -1,13 +1,23 @@
+from extra import write_log
 from email.mime.text import MIMEText
+from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
+from email import encoders
 import smtplib
-import ssl
+import ssl,os
+
+write_log('\nMail System triggered')
 
 #Loading the password
-with open('pas.1', 'r') as f:
-    password = f.read()
+try:
+    with open('pas.1', 'r') as f:
+        password = f.read()
+    write_log('Password load successfull')
+    
+except:
+    write_log('Password load failed')
 
-sender_email = "rexdivakar@gmail.com"
+sender_email = "testrecruitathon@gmail.com"
 
 
 def email_content(ip, mail):
@@ -40,6 +50,7 @@ def email_content(ip, mail):
 
         message.attach(part1)
         message.attach(part2)
+        write_log('Preview mail template loaded')
 
     #Mailing template to call for interview
     elif ip == 2:
@@ -62,15 +73,31 @@ def email_content(ip, mail):
 
         message.attach(part1)
         message.attach(part2)
+        write_log('Interview mail template loaded')
 
+    elif ip==3:
+        message['Subject'] = "Recruitathon Log File"
+        file = "logfile.txt"
+        attachment = open(file,'rb')
+        
+        obj = MIMEBase('application','octet-stream')
+        obj.set_payload((attachment).read())
+        encoders.encode_base64(obj)
+        obj.add_header('Content-Disposition',"attachment; filename= "+file)
+        message.attach(obj)
+        
+        write_log('Log data sent to admin')
+    
+    
     context = ssl.create_default_context()
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
-        server.login(sender_email, password)
-        server.sendmail(
-            sender_email, receiver_email, message.as_string()
-        )
+    try:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
+            server.login(sender_email, password)
+            server.sendmail(
+                sender_email, receiver_email, message.as_string()
+            )
+        write_log('Mail Server logged in successfully ! \nMailSent')
+    except:
+        write_log('Mail Server login failed')
 
-    return ('Mail Sent')
-
-
-# email_content(2,'rexdivakar@hotmail.com')
+    return
