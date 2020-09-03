@@ -36,6 +36,7 @@ jobs:
         
     - name: Scripts Execution
       run: |
+        python nlp.py
         python attachments.py
         python model.py
 
