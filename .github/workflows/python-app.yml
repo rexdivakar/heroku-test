@@ -40,10 +40,6 @@ jobs:
         python attachments.py
         python model.py
 
-    - uses: actions/upload-artifact@v2
-      with:
-        name: my-artifact
-
     - uses: actions/checkout@v2
 
     - uses: actions/download-artifact@v2
