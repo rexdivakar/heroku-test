@@ -1,26 +1,16 @@
-from extra import write_log
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email import encoders
 import smtplib
-import ssl,os
-
-write_log('\nMail System triggered')
-
-#Loading the password
-try:
-    with open('pas.1', 'r') as f:
-        password = f.read()
-    write_log('Password load successfull')
-    
-except:
-    write_log('Password load failed')
+import ssl
+from extra import write_log, get_password
 
 sender_email = "testrecruitathon@gmail.com"
 
 
 def email_content(ip, mail):
+    write_log('\nMail System triggered')
     # Preview resumes by HR
 
     receiver_email = mail
@@ -34,12 +24,12 @@ def email_content(ip, mail):
         # Create the plain-text and HTML version of your message
         text = """\
         Hi,
-        How are you?"""
+        This is a preview mail"""
         html = """\
         <html>
         <body>
             <p>Hi,<br>
-            How are you?<br>
+            This is a preview mail<br>
             </p>
         </body>
         </html>
@@ -57,12 +47,12 @@ def email_content(ip, mail):
         # Create the plain-text and HTML version of your message
         text = """\
         Hi,
-        How are you?"""
+        This is a Interview mail"""
         html = """\
         <html>
         <body>
             <p>Hi,<br>
-            How are you?<br>
+            This is a Interview mail<br>
             </p>
         </body>
         </html>
@@ -75,24 +65,23 @@ def email_content(ip, mail):
         message.attach(part2)
         write_log('Interview mail template loaded')
 
-    elif ip==3:
+    elif ip == 3:
         message['Subject'] = "Recruitathon Log File"
-        file = "logfile.txt"
-        attachment = open(file,'rb')
-        
-        obj = MIMEBase('application','octet-stream')
+        file = "Extras\logfile.txt"
+        attachment = open(file, 'rb')
+
+        obj = MIMEBase('application', 'octet-stream')
         obj.set_payload((attachment).read())
         encoders.encode_base64(obj)
-        obj.add_header('Content-Disposition',"attachment; filename= "+file)
+        obj.add_header('Content-Disposition', "attachment; filename= "+file)
         message.attach(obj)
-        
+
         write_log('Log data sent to admin')
-    
-    
+
     context = ssl.create_default_context()
     try:
         with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
-            server.login(sender_email, password)
+            server.login(sender_email, get_password())
             server.sendmail(
                 sender_email, receiver_email, message.as_string()
             )
