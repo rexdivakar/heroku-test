@@ -42,10 +42,15 @@ jobs:
       run: |
         python attachments.py
         python model.py
+        - name: create build artifact [sdist]
+        run: python setup.py sdist
 
-    - uses: actions/checkout@v2
+    - name: get release name
+      id: get_release_name
+      run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
-    - uses: actions/download-artifact@v2
-
-    - name: Display structure of downloaded files
-      run: ls -R
+    - name: upload build artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: limbus-${{ steps.get_release_name.outputs.VERSION }}
+        path: dist/*
