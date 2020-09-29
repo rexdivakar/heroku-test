@@ -37,13 +37,8 @@ jobs:
     - name: NLTK Download
       run: |
         python nlp.py
-        
-    - name: Scripts Execution
-      run: |
-        python attachments.py
-        python model.py
-        - name: create build artifact [sdist]
-        run: python setup.py sdist
+    - name: create build artifact [sdist]
+      run: python setup.py sdist
 
     - name: get release name
       id: get_release_name
