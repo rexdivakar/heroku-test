@@ -47,5 +47,5 @@ jobs:
     - name: upload build artifact
       uses: actions/upload-artifact@v2
       with:
-        name: limbus-${{ steps.get_release_name.outputs.VERSION }}
+        name: json_files-${{ steps.get_release_name.outputs.VERSION }}
         path: dist/*
