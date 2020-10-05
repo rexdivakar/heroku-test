@@ -1,4 +1,4 @@
-name: Format python code
+name: Code format
 on: push
 jobs:
   code-style:
@@ -17,7 +17,7 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v2.0.0
       with:
         commit_author_email: ''
-        commit_author_name: AutoPEP8
-        commit_message: autopep8 fix
+        commit_author_name: 'AutoPEP8'
+        commit_message: 'autopep8 fix'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
