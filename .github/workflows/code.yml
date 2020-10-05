@@ -16,8 +16,8 @@ jobs:
     - name: Commit and push changes
       uses: stefanzweifel/git-auto-commit-action@v2.0.0
       with:
-        INPUT_COMMIT_AUTHOR_EMAIL: ''
-        INPUT_COMMIT_AUTHOR_NAME: 'AutoPEP8'
-        INPUT_COMMIT_MESSAGE: 'autopep8 fix'
+        COMMIT_AUTHOR_EMAIL: ''
+        COMMIT_AUTHOR_NAME: 'AutoPEP8'
+        COMMIT_MESSAGE: 'autopep8 fix'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
