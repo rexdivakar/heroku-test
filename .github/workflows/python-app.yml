@@ -7,17 +7,9 @@ on:
   push:
     branches: [ master ]
   pull_request:
-    branches: [ master ]
-  pull_request:
-env:
-  SOME_THING: sweet
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    if: github.ref != 'refs/heads/master'
-    steps:
-      - name: 'Checkout'
-        uses: actions/checkout@master
+    branches: 
+    - master
+    - 'releases/**'
 jobs:
   build:
 
