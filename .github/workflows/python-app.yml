@@ -8,7 +8,16 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-
+  pull_request:
+env:
+  SOME_THING: sweet
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.ref != 'refs/heads/master'
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@master
 jobs:
   build:
 
@@ -37,15 +46,4 @@ jobs:
     - name: NLTK Download
       run: |
         python nlp.py
-    - name: create build artifact [sdist]
-      run: python setup.py sdist
 
-    - name: get release name
-      id: get_release_name
-      run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-
-    - name: upload build artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: json_files-${{ steps.get_release_name.outputs.VERSION }}
-        path: dist/*
