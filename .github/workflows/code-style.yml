@@ -1,10 +1,6 @@
 name: Format python code
 on:
   push:
-    branches: [ master ]
-    paths-ignore: ['*.txt']
-  pull_request:
-    branches: [ master ]
     paths-ignore: ['*.txt']
 jobs:
   code-style:
