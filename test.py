@@ -1,3 +1,3 @@
 for i in range(0, 1000):
     print(i)
-    print('hi')
+    print('hasdi')
