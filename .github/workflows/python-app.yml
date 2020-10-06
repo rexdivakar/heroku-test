@@ -2,14 +2,14 @@
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
 name: Python application
-
 on:
   push:
     branches: [ master ]
+    paths-ignore: ['*.txt']
   pull_request:
     branches: [ master ]
-  paths:
-    - '**.txt'
+    paths-ignore: ['*.txt']
+
 jobs:
   build:
 
