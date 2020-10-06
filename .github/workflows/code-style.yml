@@ -1,5 +1,11 @@
 name: Format python code
-on: push
+on:
+  push:
+    branches: [ master ]
+    paths-ignore: ['*.txt']
+  pull_request:
+    branches: [ master ]
+    paths-ignore: ['*.txt']
 jobs:
   code-style:
     runs-on: ubuntu-latest
@@ -9,7 +15,6 @@ jobs:
       with:
         python-version: '3.7'
     - run: |
-        paths-ignore: ['*.txt']
         python -m pip install autopep8 "black==19.10b0" "isort==4.3.21"
         isort -rc .
         autopep8 --recursive --in-place --aggressive --aggressive .
