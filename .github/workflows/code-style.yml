@@ -3,13 +3,13 @@ on: push
 jobs:
   code-style:
     runs-on: ubuntu-latest
-    paths-ignore: ['*.txt']
     steps:
     - uses: actions/checkout@master
     - uses: actions/setup-python@v2
       with:
         python-version: '3.7'
     - run: |
+        paths-ignore: ['*.txt']
         python -m pip install autopep8 "black==19.10b0" "isort==4.3.21"
         isort -rc .
         autopep8 --recursive --in-place --aggressive --aggressive .
