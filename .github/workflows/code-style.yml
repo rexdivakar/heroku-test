@@ -3,12 +3,11 @@ on:
   push:
     paths-ignore: ['*.txt']
   pull_request:
-    paths-ignore: ['*.txt]
+    paths-ignore: ['*.txt']
 
 jobs:
   code-style:
     runs-on: ubuntu-latest
-    paths-ignore: ['*.txt']
     steps:
     - uses: actions/checkout@master
     - uses: actions/setup-python@v2
@@ -24,3 +23,4 @@ jobs:
       with:
         commit_message: "autopep8 fix"
       env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
