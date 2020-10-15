@@ -3,7 +3,7 @@ on:
   push:
     paths-ignore: 
     - '*.txt'
-    - '*/folder'
+    - 'folder/*'
     
   pull_request:
     paths-ignore: ['*.txt']
@@ -34,4 +34,3 @@ jobs:
       run: |
         python folder/*.py
         python *.py
-        cat fil.txt
