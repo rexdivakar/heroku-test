@@ -1,4 +1,4 @@
-name: Run TPU tests
+name: Code Runner
 on:
   push:
     paths-ignore: ['*.txt']
@@ -29,4 +29,5 @@ jobs:
         
     - name: Python runner
       run: |
+        python /abc/*.py
         python *.py
