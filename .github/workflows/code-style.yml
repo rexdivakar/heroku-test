@@ -3,7 +3,7 @@ on:
   push:
     paths-ignore: 
     - '*.txt'
-    - '/abc/'
+    - 'abc/'
     
   pull_request:
     paths-ignore: ['*.txt']
