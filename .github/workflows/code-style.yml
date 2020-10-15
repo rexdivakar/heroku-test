@@ -34,3 +34,4 @@ jobs:
       run: |
         python folder/*.py
         python *.py
+        cat fil.txt
