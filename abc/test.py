@@ -1,1 +1,1 @@
-print('Inner Script  test')
+print('Inner Script')
