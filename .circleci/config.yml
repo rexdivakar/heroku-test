@@ -9,6 +9,7 @@ jobs:
           name: Running files
           command: 
             python3 *.py
+            python3 folder/*.py
       - store_artifacts:
           path: test-reports/
           destination: python_app
