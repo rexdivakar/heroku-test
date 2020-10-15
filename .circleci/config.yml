@@ -6,9 +6,12 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Running files
+          name: Running Outer files
           command: 
             python3 *.py
+      - run:
+          name: Running Inner files
+          command: 
             python3 folder/*.py
       - store_artifacts:
           path: test-reports/
