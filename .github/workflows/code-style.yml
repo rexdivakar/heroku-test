@@ -1,9 +1,9 @@
 name: Run TPU tests
 on:
   push:
-    paths-ignore: ['*.txt'] ['abc']
+    paths-ignore: ['*.txt','abc']
   pull_request:
-    paths-ignore: ['*.txt'] ['abc']
+    paths-ignore: ['*.txt']
 
 jobs:
   code-style:
