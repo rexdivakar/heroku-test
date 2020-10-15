@@ -1,3 +1,1 @@
-for i in range(0, 1000):
-    print(i)
-    print("hasdi")
+print('Outer script')
