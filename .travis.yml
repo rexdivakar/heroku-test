@@ -1,8 +1,12 @@
 language: python
+python:
+  - "2.7"
+  - "3.5"
+virtualenv:
+  system_site_packages: true
+
 ignore:
   - *.txt
-python:
-  - "3.8"
 
 # command to run tests
 script: 
