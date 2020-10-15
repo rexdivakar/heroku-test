@@ -1,7 +1,7 @@
 name: Run TPU tests
 on:
   push:
-    paths-ignore: ['*.txt','abc']
+    paths-ignore: ['*.txt']
   pull_request:
     paths-ignore: ['*.txt']
 
