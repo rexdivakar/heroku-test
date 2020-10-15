@@ -1,7 +1,8 @@
 version: 2
 jobs:
   build:
-    paths-ignore:
+    paths:
+      ignore:
         -'folder\*'
     docker:
       - image: circleci/python:3.6
