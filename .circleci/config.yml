@@ -11,9 +11,6 @@ jobs:
 
       - run:
           command: python *.py
-          name: Test
+          name: Code Runner
 
-workflows:
-  main:
-    jobs:
-      - build-and-test
+
