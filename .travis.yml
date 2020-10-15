@@ -1,4 +1,6 @@
 language: python
+ignore:
+  - *.txt
 python:
   - "3.8"
 
