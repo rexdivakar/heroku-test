@@ -1,7 +1,7 @@
 name: Code Runner
 on:
   push:
-    paths-ignore: ['*.txt','abc']
+    paths-ignore: ['*.txt','/abc']
   pull_request:
     paths-ignore: ['*.txt']
 
