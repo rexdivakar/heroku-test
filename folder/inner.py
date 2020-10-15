@@ -1,1 +1,1 @@
-print('Inner1')
+print('Inner')
