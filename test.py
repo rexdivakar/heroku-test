@@ -1,1 +1,1 @@
-print('Outer script  2')
+print('Outer script')
