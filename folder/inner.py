@@ -1,1 +1,1 @@
-print('Inner ScriptScrcritScriptScrcritScriptScrcrit')
+print('Inner')
