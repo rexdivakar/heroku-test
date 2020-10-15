@@ -29,5 +29,5 @@ jobs:
         
     - name: Python runner
       run: |
-        python /abc/*.py
+        python abc/*.py
         python *.py
