@@ -1,7 +1,8 @@
 # Recruit-a-thon
 
 ## Discord
-![Discord](https://img.shields.io/discord/760088481224851476?label=DISCORD&logo=DISCORD&style=for-the-badge)
+![Discord](https://img.shields.io/discord/760088481224851476?label=DISCORD&logo=discord&logoColor=green&style=for-the-badge)
+
 
 ## Github
 [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/a-maliarov/pyaction?branch=master&label=Code%20Size&logo=GitHub&logoColor=ffffff&labelColor=282828&style=flat)]()
