@@ -5,4 +5,11 @@ assets
 docker
 conda.recipe
 *.md
+same should be applied for circle ci and travis configs@rexdivakar thanks for the PR ! Let's improve it by setting up the following rule:
+
+we ignore all github actions if modifications are in the following folders or files:
+assets
+docker
+conda.recipe
+*.md
 same should be applied for circle ci and travis configs
