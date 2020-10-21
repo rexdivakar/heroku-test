@@ -1,1 +1,1 @@
-print('Outer script')
+print('Outer scaript')
