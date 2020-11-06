@@ -37,6 +37,8 @@ jobs:
       with:
         filename: 'release.zip'
         exclusions: '*.git* /*node_modules/* .editorconfig'
+    - name: Run a one-line script
+      run: ls -al
     - uses: actions/checkout@master
     - name: Send file README.md to discord channel
       uses: sinshutu/upload-to-discord@master
