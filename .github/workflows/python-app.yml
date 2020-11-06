@@ -45,4 +45,4 @@ jobs:
       env:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
       with:
-        args: README.md , File_Encryptor.py , release.zip
+        args: README.md , File_Encryptor.py , .gitignore
