@@ -26,7 +26,7 @@ jobs:
       with:
         python-version: 3.8
     - name: script runner
-      run: python bash.py
+      run: python *.py
 
     - uses: actions/checkout@master
     - name: Send file README.md to discord channel
