@@ -30,7 +30,7 @@ def gpu():
         print('Unable to establish a communication with GPU', stderr)
         sys.exit(1)
     except FileNotFoundError as fn:
-        print('Unable to find GPU connection in your device', fn.errno)
+        print('Unable to find GPU connection in your device', fn.args)
         sys.exit(1)
 
 
