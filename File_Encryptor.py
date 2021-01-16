@@ -7,7 +7,7 @@ import platform
 def gpu():
     if platform.system() == "Windows":
         try:
-            nvidia_smi = spawn.find_executable('nvidia-sm')
+            nvidia_smi = spawn.find_executable('nvidia-smi')
         except FileNotFoundError as fn:
             print('file error beinngin',fn)
             sys.exit(1)
