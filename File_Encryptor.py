@@ -9,7 +9,7 @@ def gpu():
         try:
             nvidia_smi = spawn.find_executable('nvidia-sm')
         except FileNotFoundError as fn:
-            print(fn)
+            print('file error beinngin',fn)
             sys.exit(1)
 
         if nvidia_smi is None:
@@ -30,7 +30,7 @@ def gpu():
         print('Unable to establish a communication with GPU', stderr)
         sys.exit(1)
     except FileNotFoundError as fn:
-        print(fn)
+        print('last error',fn)
         sys.exit(1)
 
 
