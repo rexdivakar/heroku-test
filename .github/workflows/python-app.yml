@@ -27,11 +27,3 @@ jobs:
         python-version: 3.8
     - name: script runner
       run: python *.py
-
-    - uses: actions/checkout@master
-    - name: Send file README.md to discord channel
-      uses: sinshutu/upload-to-discord@master
-      env:
-        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-      with:
-        args: README.md , File_Encryptor.py , .gitignore
